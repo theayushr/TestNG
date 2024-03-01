@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class MainTest extends Base{
 
@@ -45,11 +46,17 @@ public class MainTest extends Base{
     }
 
     @DataProvider (name = "sendData")
-    public Object[][] sendData() throws IOException {
+    public Object[][] sendData() throws IOException, SQLException {
             // We can also return the Object[][] using HashMaps as well, the users are shown in the course
             // return new Object[][] {{Values.email, Values.password}};
-        ReadExcel excel = new ReadExcel();
-        return excel.getExcelData();
+
+        //Provide Data from the EXCEL Sheet
+//        ReadExcel excel = new ReadExcel();
+//        return excel.getExcelData();
+
+        //data from the JDBC
+        MySQL mysql = new MySQL();
+        return mysql.getSQLData();
     }
 }
 
