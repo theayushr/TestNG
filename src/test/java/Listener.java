@@ -40,7 +40,6 @@ public class Listener extends Base implements ITestListener {
             throw new RuntimeException(e);
         }
         test.addScreenCaptureFromPath(filepath, result.getMethod().getMethodName());
-
         test.fail(result.getThrowable());
     }
 
